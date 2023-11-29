@@ -1,0 +1,14 @@
+<div *ngIf="images.length; else noImages">
+    <div class="image-gallery">
+      <div *ngFor="let image of images" class="image-item">
+        <img [src]="image.url" [alt]="image.title">
+        <h3>{{ image.title }}</h3>
+        <p *ngIf="image.description">{{ image.description }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noImages>
+    <p>No hay imágenes que coincidan con el filtro.</p>
+  </ng-template>
+  

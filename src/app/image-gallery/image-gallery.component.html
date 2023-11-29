@@ -1,0 +1,12 @@
+<!-- Campo de entrada para la búsqueda -->
+<input type="text" [(ngModel)]="searchText" (input)="filterImages()" placeholder="Buscar...">
+
+
+<!-- Selector de categorías -->
+<select [(ngModel)]="selectedCategory" (change)="filterImages()">
+  <option value="">Todas las categorías</option>
+  <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+</select>
+
+<!-- Integración del componente ImageDisplay -->
+<app-image-display [images]="filteredImages"></app-image-display>
